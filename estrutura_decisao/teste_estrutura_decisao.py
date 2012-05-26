@@ -280,10 +280,18 @@ class testeEstruturaDecisao(unittest.TestCase):
             self.fail('test_qtd_centenas_dezenas_unidades_nan error')
 
     def test_saque_caixa(self):
-        self.assertEquals('2x$100,1X$50,1X$5,1X$1', saque(256))
-        self.assertEquals('3x$100,1X$50,4X$10,1x$5,4X$1', saque(399))
-        
-        
+        self.assertEquals('2X$100,1X$50,1X$5,1X$1', saque(256))
+        self.assertEquals('2X$100,1X$5', saque(205))
+        self.assertEquals('3X$100,1X$50,4X$10,1X$5,4X$1', saque(399))
+
+    def test_saque_nan(self):
+        try:
+            saque('asdf')
+        except TypeError:
+            pass
+        else:
+            self.fail('test_saque_nan error')
+
 if __name__ == "__main__":
     unittest.main()
 
