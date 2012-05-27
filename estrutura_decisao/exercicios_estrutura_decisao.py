@@ -346,37 +346,20 @@ def qtd_centenas_dezenas_unidades(num):
 
 def saque(valor):
     math.isnan(valor)
-    cem = cinquenta = dez = cinco = ''
 
     if 10 <= valor <= 600:
 
-        divisivel = lambda x,y: x % y != x
+        def concat(a,b):
+            return a + ',' + b
 
-        if divisivel(valor, 100):
-            cem = str(valor / 100) + 'X$100'
-            valor = valor % 100
-            if valor != 0:
-                cem = cem + ',' 
+        isDiv = lambda x,y: x % y != x
 
-        if divisivel(valor, 50):
-            cinquenta = str(valor / 50) + 'X$50'
-            valor = valor % 50
-            if valor != 0:
-                cinquenta = cinquenta + ','
+        n = lambda x,y: str(x / y) + 'X$' + str(y)
 
-        if divisivel(valor, 10):
-            dez = str(valor / 10) + 'X$10'
-            valor = valor % 10
-            if valor != 0:
-                dez = dez + ','
+        result = []
+        for i in [100,50,10,5,1]:
+            if isDiv(valor, i):
+                result.append(n(valor, i))
+                valor = valor % i
 
-        if divisivel(valor, 5):
-            cinco = str(valor / 5) + 'X$5'
-            valor = valor % 5
-            if valor != 0:
-                cinco = cinco + ','
-
-        um = valor != 0 and str(valor) + 'X$1' or ''
-
-    return cem + cinquenta + dez + cinco + um
-
+        return reduce(concat, result)
