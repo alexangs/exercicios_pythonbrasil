@@ -275,21 +275,7 @@ def tipo_triangulo(lado1, lado2, lado3):
     else:
         return 'Os parametros não formam um triângulo'
 
-
-"""
-Faça um programa que calcule as raízes de uma equação do segundo grau, na
- forma ax2 + bx + c. O programa deverá pedir os valores de a, b e c e fazer
- as consistências, informando ao usuário nas seguintes situações:
-
-    Se o usuário informar o valor de A igual a zero, a equação não é do segundo
-     grau e o programa não deve fazer pedir os demais valores, sendo encerrado;
-    Se o delta calculado for negativo, a equação não possui raizes reais.
-    Informe ao usuário e encerre o programa;
-    Se o delta calculado for igual a zero a equação possui apenas uma raiz real;
-    informe-a ao usuário;
-    Se o delta for positivo, a equação possui duas raiz reais;
-    informe-as ao usuário;
-"""
+# exercico numero 16
 #x' = -b/2a + R[b²-4ac] /2a
 def solucao_equacao(a,b,c):
     math.isnan(a)
@@ -309,6 +295,7 @@ def solucao_equacao(a,b,c):
 
     return '{%i}' % x1
 
+# exercico numero 17
 def isbissexto(ano):
     math.isnan(ano)
     if ano % 4 == 0 and (ano % 400 == 0 or ano % 100 != 0):
@@ -344,6 +331,7 @@ def qtd_centenas_dezenas_unidades(num):
 
     return result
 
+# exercico numero 21
 def saque(valor):
     math.isnan(valor)
 
@@ -363,3 +351,43 @@ def saque(valor):
                 valor = valor % i
 
         return reduce(concat, result)
+    return 'Informe um valor entre 10 e 600.'
+
+# exercicio numero 22
+def isPar(valor):
+    math.isnan(valor)
+    return valor % 2 == 0
+
+#exercicio numero 23
+def isdecimal(valor):
+    math.isnan(valor)
+    return (round(valor) != valor)
+
+#exercicio 24
+def ispositivo(valor):
+    math.isnan(valor)
+    return valor > 0
+
+#exercicio numero 24
+def multiFunc(x, y, opt):
+    math.isnan(x)
+    math.isnan(y)
+
+    if type(opt) != str :
+        raise TypeError('opt invalido!')
+
+    result = ''
+
+    if opt.lower() == 'a':
+        result = str(x) +  (isPar(x) and ' : par, ' or ' : impar, ')
+        result += str(y) +  (isPar(y) and ' : par' or ' : impar')
+
+    elif opt.lower() == 'b':
+        result = str(x) +  (ispositivo(x) and ' : positivo, ' or ' : negativo, ')
+        result += str(y) +  (ispositivo(y) and ' : positivo' or ' : negativo')
+
+    elif opt.lower() == 'c':
+        result = str(x) +  (isdecimal(x) and ' : decimal, ' or ' : inteiro, ')
+        result += str(y) +  (isdecimal(y) and ' : decimal' or ' : inteiro')
+
+    return result

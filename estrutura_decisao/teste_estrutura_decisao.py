@@ -284,6 +284,10 @@ class testeEstruturaDecisao(unittest.TestCase):
         self.assertEquals('2X$100,1X$5', saque(205))
         self.assertEquals('3X$100,1X$50,4X$10,1X$5,4X$1', saque(399))
 
+    def test_saque_fora_range(self):
+        self.assertEquals('Informe um valor entre 10 e 600.', saque(1000))
+        self.assertEquals('Informe um valor entre 10 e 600.', saque(1))
+
     def test_saque_nan(self):
         try:
             saque('asdf')
@@ -291,6 +295,52 @@ class testeEstruturaDecisao(unittest.TestCase):
             pass
         else:
             self.fail('test_saque_nan error')
+
+    def test_par_ou_impar(self):
+        self.assertTrue(isPar(2))
+        self.assertTrue(isPar(4))
+        self.assertFalse(isPar(1))
+        self.assertFalse(isPar(1))
+
+    def test_par_ou_impar_error(self):
+        try:
+            isPar('asdfaf')
+        except TypeError:
+            pass
+        else:
+            self.fail('test_par_ou_impar_error')
+
+    def test_isdecimal(self):
+        self.assertTrue(isdecimal(1.2))
+        self.assertTrue(isdecimal(1.0000000000001))
+        self.assertTrue(isdecimal(2.32))
+        self.assertFalse(isdecimal(1))
+        self.assertFalse(isdecimal(0))
+        self.assertFalse(isdecimal(77665))
+
+    def test_isdecimal_nan(self):
+        try:
+            isdecimal('adfadf','adsfafd')
+        except TypeError:
+            pass
+        else:
+            self.fail('test_isdecimal_nan : numero de parametros Inválido')
+
+    def test_multiFunc(self):
+        self.assertEquals('20 : par, 33 : impar', multiFunc(20, 33, 'a'))
+        self.assertEquals('11 : impar, 4 : par', multiFunc(11, 4, 'a'))
+        self.assertEquals('20 : par, 33 : impar', multiFunc(20, 33, 'a'))
+        self.assertEquals('11 : impar, 4 : par', multiFunc(11, 4, 'a'))
+
+        self.assertEquals('7 : positivo, -3 : negativo', multiFunc(7, -3, 'b'))
+        self.assertEquals('-1 : negativo, 2 : positivo', multiFunc(-1, 2, 'b'))
+
+        self.assertEquals('7 : inteiro, 0.1 : decimal', multiFunc(7, 0.1, 'c'))
+        self.assertEquals('0 : inteiro, -0.22 : decimal', multiFunc(0, -0.22, 'c'))
+
+
+
+
 
 if __name__ == "__main__":
     unittest.main()
