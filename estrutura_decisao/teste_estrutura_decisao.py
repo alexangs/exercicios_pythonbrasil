@@ -338,8 +338,24 @@ class testeEstruturaDecisao(unittest.TestCase):
         self.assertEquals('7 : inteiro, 0.1 : decimal', multiFunc(7, 0.1, 'c'))
         self.assertEquals('0 : inteiro, -0.22 : decimal', multiFunc(0, -0.22, 'c'))
 
+    def test_classificador(self):
+        import random
+        suspeito = [True, True, False, False, False]
 
+        for i in range(60):
+            params = random.sample(suspeito, 5)
+            self.assertEquals('Suspeita', classificador(params[0], params[1],\
+                params[2], params[3], params[4]))
 
+        cumplice = [True, True, True, True, False, False]
+
+        for i in range(60):
+            params = random.sample(cumplice, 5)
+            self.assertEquals('Cúmplice', classificador(params[0], params[1],\
+                params[2], params[3], params[4]))
+
+        self.assertEquals('Assassino', classificador(True, True, True, True, True))
+        self.assertEquals('Inocente', classificador(False, False, False, False, False))
 
 
 if __name__ == "__main__":

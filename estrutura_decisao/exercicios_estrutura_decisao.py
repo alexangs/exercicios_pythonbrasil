@@ -5,7 +5,7 @@ import math
 
 # EstruturaDeDecisao
 
-#Faça um Programa que peça dois números e imprima o maior deles
+# exercicio numero 1
 def numeroMaior(x, y):
     math.isnan(x)
     math.isnan(y)
@@ -16,8 +16,7 @@ def numeroMaior(x, y):
         z = y
     return z
 
-#Faça um Programa que peça um valor e mostre na tela se o valor
-# é positivo ou negativo.
+# exercicio numero 2
 def valorSinal(num):
     math.isnan(num)
 
@@ -27,15 +26,14 @@ def valorSinal(num):
         result = "positivo"
     return result
 
-#Faça um Programa que verifique se uma letra digitada é "F" ou "M".
-#Conforme a letra escrever: F - Feminino, M - Masculino, Sexo Inválido.
+# exercicio numero 3
 def qualSexo(op):
     dic = {'F': "Feminino", 'M': "Masculino"}
     if dic.get(op) != None:
         return dic.get(op)
     return "Sexo Inválido!"
 
-#Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
+# exercicio numero 4
 def tipoLetra(letra):
     if type(letra) is not str:
         raise TypeError('O parametro deve ser um letra.')
@@ -46,13 +44,7 @@ def tipoLetra(letra):
         result = 'consoante'
     return result
 
-"""
-Faça um programa para a leitura de duas notas parciais de um aluno.
- O programa deve calcular a média alcançada por aluno e apresentar:
-    A mensagem "Aprovado", se a média alcançada for maior ou igual a sete;
-    A mensagem "Reprovado", se a média for menor do que sete;
-    A mensagem "Aprovado com Distinção", se a média for igual a dez.
-"""
+# exercicio numero 5
 def situacao_aluno(nota1, nota2):
     math.isnan(nota1)
     math.isnan(nota2)
@@ -66,7 +58,7 @@ def situacao_aluno(nota1, nota2):
         result = 'Aprovado com Distinção'
     return result
 
-#Faça um Programa que leia três números e mostre o maior deles.
+# exercicio numero 6
 def maiorEntre3(a,b,c):
     math.isnan(a)
     math.isnan(b)
@@ -74,7 +66,7 @@ def maiorEntre3(a,b,c):
 
     return max(a,b,c)
 
-#Faça um Programa que leia três números e mostre o maior e o menor deles. 
+# exercicio numero 7 
 def maiorMenorEntre3(a,b,c):
     math.isnan(a)
     math.isnan(b)
@@ -82,10 +74,7 @@ def maiorMenorEntre3(a,b,c):
 
     return max(a,b,c) , min(a,b,c)
 
-"""
-Faça um programa que pergunte o preço de três produtos e informe qual
- produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
-"""
+# exercicio numero 8
 def qualProdutoCamprar(produtos):
     if len( filter(lambda x: x.__class__ is not Produto, produtos) ) > 0:
         raise TypeError('Error, lista de Produtos possui algum item diferente de Produto')
@@ -99,7 +88,7 @@ class Produto:
         self.nome = nome
         self.valor = valor
 
-# Faça um Programa que leia três números e mostre-os em ordem decrescente.
+# exercicio numero 9
 def ordenarListaNumeroDecrescente(lista):
     if type(lista) is not list:
         raise TypeError('Error, parametro nao e uma lista')
@@ -110,12 +99,7 @@ def ordenarListaNumeroDecrescente(lista):
     lista.sort(reverse=True)
     return lista
 
-"""
-Faça um Programa que pergunte em que turno você estuda.
- Peça para digitar M-matutino ou V-Vespertino ou N- Noturno.
- Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!"
- ou "Valor Inválido!", conforme o caso.
-"""
+# exercicio numero 10
 def qualTurno(turno):
     if type(turno) == str:
         dic = {'M': 'Bom Dia!', 'N': 'Boa Noite!', 'V': 'Boa Tarde!'}
@@ -123,23 +107,7 @@ def qualTurno(turno):
             return dic.get(turno.upper())
     return "Valor Inválido!"
 
-"""
- As Organizações Tabajara resolveram dar um aumento de salário aos seus
- colaboradores e lhe contraram para desenvolver o programa que calculará
-  os reajustes.
-
- Faça um programa que recebe o salário de um colaborador e o reajuste
- segundo o seguinte critério, baseado no salário atual:
-    salários até R$ 280,00 (incluindo) : aumento de 20%
-    salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
-    salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
-    salários de R$ 1500,00 em diante : aumento de 5% 
-    Após o aumento ser realizado, informe na tela:
-    o salário antes do reajuste;
-    o percentual de aumento aplicado;
-    o valor do aumento;
-    o novo salário, após o aumento.
-"""
+# exercicio numero 11
 def reajuste_salario(salario):
     math.isnan(salario)
 
@@ -155,29 +123,7 @@ def reajuste_salario(salario):
     return result
 
 
-"""
-Faça um programa para o cálculo de uma folha de pagamento, sabendo que os
- descontos são do Imposto de Renda, que depende do salário bruto (conforme
- tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do
- Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário
- Líquido corresponde ao Salário Bruto menos os descontos. O programa
- deverá pedir ao usuário o valor da sua hora e a quantidade de hora trabalhadas no mês.
-
-    Desconto do IR:
-    Salário Bruto até 900 (inclusive) - isento
-    Salário Bruto até 1500 (inclusive) - desconto de 5%
-    Salário Bruto até 2500 (inclusive) - desconto de 10%
-    Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações,
-    dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a
-    quantidade de hora é 220.
-
-            Salário Bruto: (5 * 220)        : R$ 1100,00
-            (-) IR (5%)                     : R$   55,00
-            (-) INSS ( 10%)                 : R$  110,00
-            FGTS (11%)                      : R$  121,00
-            Total de descontos              : R$  165,00
-            Salário Liquido                 : R$  935,00
-"""
+# exercicio numero 12
 def folha_pagamento(hh, total_h):
     math.isnan(hh)
     math.isnan(total_h)
@@ -199,10 +145,7 @@ def folha_pagamento(hh, total_h):
     result = (bruto, valorIR, inss, fgts, total_descontado, liquido)
     return result
 
-"""
-Faça um Programa que leia um número e exiba o dia correspondente da semana.
- (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
-"""
+# exercicio numero 13
 def dia_semana(num):
     try:
         math.isnan(num)
@@ -213,22 +156,7 @@ def dia_semana(num):
     except TypeError:
         return 'Valor Inválido!'
 
-"""
-Faça um programa que lê as duas notas parciais obtidas por um aluno numa
- disciplina ao longo de um semestre, e calcule a sua média. A atribuição
- de conceitos obedece à tabela abaixo:
-
-      Média de Aproveitamento  Conceito
-      Entre 9.0 e 10.0        A
-      Entre 7.5 e 9.0         B
-      Entre 6.0 e 7.5         C
-      Entre 4.0 e 6.0         D
-      Entre 4.0 e zero        E
-
-    O algoritmo deve mostrar na tela as notas, a média, o conceito
-     correspondente e a mensagem “APROVADO” se o conceito for A, B ou C
-     ou “REPROVADO” se o conceito for D ou E.
-"""
+# exercicio numero 14
 def valor_conceito(nota1, nota2):
     math.isnan(nota1)
     math.isnan(nota2)
@@ -249,18 +177,7 @@ def valor_conceito(nota1, nota2):
         return 'Valor Inválido!'
     return nota1, nota2,media, conceito, result_final
 
-"""
-Faça um Programa que peça os 3 lados de um triângulo. O programa deverá
- informar se os valores podem ser um triângulo. Indique, caso os lados
- formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
-
-    Dicas:
-    Três lados formam um triângulo quando a soma de quaisquer dois lados
-    for maior que o terceiro;
-    Triângulo Equilátero: três lados iguais;
-    Triângulo Isósceles: quaisquer dois lados iguais;
-    Triângulo Escaleno: três lados diferentes; 
-"""
+# exercicio numero 15
 def tipo_triangulo(lado1, lado2, lado3):
     math.isnan(lado1)
     math.isnan(lado2)
@@ -358,17 +275,17 @@ def isPar(valor):
     math.isnan(valor)
     return valor % 2 == 0
 
-#exercicio numero 23
+# exercicio numero 23
 def isdecimal(valor):
     math.isnan(valor)
     return (round(valor) != valor)
 
-#exercicio 24
+# exercicio 24
 def ispositivo(valor):
     math.isnan(valor)
     return valor > 0
 
-#exercicio numero 24
+# exercicio numero 24
 def multiFunc(x, y, opt):
     math.isnan(x)
     math.isnan(y)
@@ -391,3 +308,14 @@ def multiFunc(x, y, opt):
         result += str(y) +  (isdecimal(y) and ' : decimal' or ' : inteiro')
 
     return result
+
+# exercicio numero 25
+def classificador(istel, islocal, ismora, isdivida, istrab):
+    respostas = filter(lambda x: x,[istel, islocal, ismora, isdivida, istrab])
+    if len(respostas) == 2:
+        return 'Suspeita'
+    elif 3 <= len(respostas) <= 4:
+        return 'Cúmplice'
+    elif len(respostas) == 5:
+        return 'Assassino'
+    return 'Inocente'
