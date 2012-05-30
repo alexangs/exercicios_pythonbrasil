@@ -319,3 +319,18 @@ def classificador(istel, islocal, ismora, isdivida, istrab):
     elif len(respostas) == 5:
         return 'Assassino'
     return 'Inocente'
+
+# exercico numero 26
+def posto_combustivel(tipo_combustivel, litros):
+    desconto = 1.0
+    taxa = 1.0
+    if tipo_combustivel.lower() == 'a':
+        desconto = (litros <= 20 and 0.97 or 0.95)
+        taxa = 1.9
+
+    elif tipo_combustivel.lower() == 'b':
+        desconto = (litros <= 20 and 0.96 or 0.94)
+        taxa = 2.5
+
+    return (desconto * (litros * taxa))
+

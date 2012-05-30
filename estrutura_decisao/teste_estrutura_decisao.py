@@ -349,14 +349,19 @@ class testeEstruturaDecisao(unittest.TestCase):
 
         cumplice = [True, True, True, True, False, False]
 
-        for i in range(60):
+        for i in range(12):
             params = random.sample(cumplice, 5)
             self.assertEquals('Cúmplice', classificador(params[0], params[1],\
                 params[2], params[3], params[4]))
 
         self.assertEquals('Assassino', classificador(True, True, True, True, True))
-        self.assertEquals('Inocente', classificador(False, False, False, False, False))
+        self.assertEquals('Inocente',  classificador(False, False, False, False, False))
 
+    def test_posto_combuntivel(self):
+        self.assertEquals(18.43,  posto_combustivel(tipo_combustivel='a', litros=10))
+        self.assertEquals(180.5,  posto_combustivel(tipo_combustivel='a', litros=100))
+        self.assertEquals(24.0,   posto_combustivel(tipo_combustivel='b', litros=10))
+        self.assertEquals(235.0,  posto_combustivel(tipo_combustivel='b', litros=100))
 
 if __name__ == "__main__":
     unittest.main()
