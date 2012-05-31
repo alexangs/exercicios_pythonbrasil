@@ -210,7 +210,7 @@ class testeEstruturaDecisao(unittest.TestCase):
         try:
             tipo_triangulo('s', None, 6)
         except TypeError as e:
-            self.assertEquals('a float is required', e.message)
+            pass
         else:
             self.fail('Error inesperado')
 
@@ -362,6 +362,15 @@ class testeEstruturaDecisao(unittest.TestCase):
         self.assertEquals(180.5,  posto_combustivel(tipo_combustivel='a', litros=100))
         self.assertEquals(24.0,   posto_combustivel(tipo_combustivel='b', litros=10))
         self.assertEquals(235.0,  posto_combustivel(tipo_combustivel='b', litros=100))
+
+    def test_venda_fruta(self):
+        self.assertEquals(8.6,    venda_frutas(morango=2, maca=2))
+        self.assertEquals(15.0,   venda_frutas(morango=6, maca=1))
+        self.assertEquals(11.5 ,   venda_frutas(morango=1, maca=6))
+        self.assertEquals(17.42, venda_frutas(morango=4.5, maca=4.5))
+        self.assertEquals(18.32, venda_frutas(morango=5.5, maca=5.5))
+        self.assertEquals(25.38,  venda_frutas(morango=12, maca=1))
+
 
 if __name__ == "__main__":
     unittest.main()

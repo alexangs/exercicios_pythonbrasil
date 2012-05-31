@@ -334,3 +334,14 @@ def posto_combustivel(tipo_combustivel, litros):
 
     return (desconto * (litros * taxa))
 
+# exercicio numero 27
+def venda_frutas(morango = 0, maca = 0):
+    valork_morengo = (morango > 5 and 2.2 or 2.5)
+    valork_maca = (maca > 5 and 1.5 or 1.8)
+
+    result = maca * valork_maca + morango * valork_morengo
+
+    desconto = (result > 25 or (maca + morango) > 8 ) and 0.9 or 1
+
+    return round(result * desconto, 2)
+
